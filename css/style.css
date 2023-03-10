@@ -1,0 +1,52 @@
+.btn_modi {
+  display: none;
+}
+
+.item .done {
+  -webkit-text-decoration: line-through red 3px;
+          text-decoration: line-through red 3px;
+}
+
+.wrapper {
+  width: 600px;
+  height: 680px;
+  background-image: url(../image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.inpWrap,
+.listview {
+  width: 400px;
+  display: flex;
+  font-size: 20px;
+}
+
+.inpWrap {
+  justify-content: center;
+  align-items: center;
+}
+.inpWrap .btn_inp,
+.inpWrap .btn_AllDel {
+  margin-left: 20px;
+  padding: 5px auto;
+  background-color: #6A7F9E;
+  color: #ffffff;
+}
+
+.listview {
+  width: 500px;
+  justify-items: center;
+}
+
+.listview ul li .item {
+  display: flex;
+  align-items: center;
+}
+
+.listview ul li .icon {
+  display: flex;
+  margin-right: 0;
+  color: #6A7F9E;
+  padding: auto;
+}/*# sourceMappingURL=style.css.map */

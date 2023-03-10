@@ -1,0 +1,60 @@
+$mColor:#6A7F9E;
+$fColor:#ffffff;
+
+
+
+.btn_modi {
+  display: none;
+}
+
+.item .done {
+  text-decoration: line-through red 3px;
+}
+
+.wrapper{width: 600px;
+  height: 680px;  
+  background-image:url(../image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+  .inpWrap,
+  .listview{
+       width: 400px;
+       display: flex;  
+       font-size: 20px; 
+  }
+  .inpWrap{
+    justify-content: center;
+    align-items: center;
+    
+    .btn_inp,
+    .btn_AllDel{
+      margin-left: 20px;
+      padding: 5px auto;
+      background-color: $mColor;
+      color:$fColor
+    }
+  }
+
+  .listview{
+    width: 500px;
+    justify-items: center;
+    
+    }
+  
+
+  .listview ul li .item{
+    display: flex;
+    align-items: center;
+  }
+  .listview ul li .icon{
+    display: flex;
+    margin-right:0;
+    color:$mColor;
+    padding: auto;;
+    
+  }
+
+
+
+

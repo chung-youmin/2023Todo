@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ::: YUM TO DO LIST :::</title>
+  <!-- reset -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- link css  -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- icon -->
+  <!-- <i class="fa-solid fa-trash"></i>
+  <i class="fa-regular fa-pen-to-square"></i>
+  <i class="fa-regular fa-square-check"></i> -->
+</head>
+
+<body>
+  
+    <div class="inpWrap">
+      <input type="hidden" class="num">
+      <input type="text" class="inp" placeholder="오늘의 할일을 입력하세요">
+      <button class="btn_inp">입력</button>
+      <button class="btn_modi">수정</button>
+      <button class="btn_AllDel" onclick="listAllDel()">전체삭제</button>
+    </div>
+    <div class="listview">
+      <ul>
+        <!-- listData 들어가야 하는 곳 -->
+      </ul>
+    </div>
+  
+  <script>
+    let listData = [];
+
+    const inpElem = document.querySelector(".inp")
+    const numElem = document.querySelector(".num")
+    const btn_InElem = document.querySelector(".btn_inp")
+    const btn_MoElem = document.querySelector(".btn_modi")
+    const listElem = document.querySelector(".listview ul")
+
+
+    // 로칼스토리지(저장 / 불러오기 )
+    //     let valueData = JSON.stringify(listData)
+    //     localStorage.setItem("todoData",valueData)
+
+    // 입력(창/버튼-엔터랑 버튼)
+    btn_InElem.addEventListener("click", function () {
+
+      let value = { todo: inpElem.value, done: false }
+
+      if (inpElem.value == "") {
+        alert("뭐하냐")
+        inpElem.focus()
+      } else {
+        listData.push(inpElem.value);
+
+
+        let valueData = JSON.stringify(listData)
+        localStorage.setItem("todoData", valueData)
+        viewData();
+        inpElem.value = "";
+      }})
+
+    inpElem.addEventListener("keyup", function (e) {
+      if (e.keyCode === 13) {
+        let vlaue = { todo: inpElem.value, done: false }
+        if (inpElem.value == "") {
+          alert("뭐하냐")
+          inpElem.focus()
+        } else {
+          listData.push(inpElem.value);
+
+          let valueData = JSON.stringify(listData)
+          localStorage.setItem("todoData", valueData)
+          viewData();
+          inpElem.value = "";
+
+
+        }
+      }
+    })
+
+   
+// 자주 언급되는 viewdata함수 
+
+  // 수정(불러오기/버튼)
+  btn_MoElem.addEventListener("click", function () {
+      listData[numElem.value].todo = inpElem.value;
+      listData[numElem.value].done = false;
+      inpElem.value = "";
+      btn_InElem.style.display = "inner-block";
+      btn_MoElem.style.display = "none";
+
+      // 로칼스토리지(저장 / 불러오기 )
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+      viewData();
+
+    })
+
+    
+
+    
+    function modi(todo, index) {
+      inpElem.value = todo;
+      numElem.value = index;
+      btn_InElem.style.display = "none"
+      btn_MoElem.style.display = "inline-block"
+    }
+
+    // done
+    function done(index) {
+      listData[index].done =! listData[index].done;
+      // 로칼스토리지(저장 / 불러오기 )
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+      viewData();
+
+    }
+
+    // 삭제(한줄 삭제)
+    function itemDel(index) {
+      listData.splice(index, 1)
+      // 로칼스토리지(저장 / 불러오기 )
+      let valueData = JSON.stringify(listData)
+      localStorage.setItem("todoData", valueData)
+      viewData();
+    }
+    // 전체삭제
+    function listAllDel() {
+      listData = [];
+      viewData();
+    }
+
+
+  </script>
+  
+ 
+</body>
+
+</html>

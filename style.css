@@ -1,0 +1,92 @@
+.btn_modi {
+  display: none;
+}
+
+.item.done {  
+  text-decoration: line-through white 1px;
+}
+
+.wrap {
+  width: 880px;
+  height: 500px;
+  background-image: url("../5.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.listView {
+  width: 250px;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.inpWrap {
+  font-size: 20px;
+  width: 300px;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.inpWrap .inp {
+  font-size: 10px;
+  background-color: #B83F46;
+  border: white solid 1px;
+}
+
+.inpWrap .inp ::-moz-placeholder {
+  color: white;
+}
+
+.inpWrap .inp ::placeholder {
+  color: white;
+}
+
+.inpWrap .btn_input,
+.inpWrap .btn_modi,
+.inpWrap .btnAllDel {
+  font-size: 10px;
+  margin-left: 10px;
+  padding: 1px;
+  background-color: #B83F46;
+  color: white;
+  border: white solid 1px;
+}
+
+.listView {
+  padding-left: 10px;
+  background: #B83F46;
+}
+
+.listView>ul>li {
+  display: flex;
+  padding: 5px 0;
+  height: 15px;
+}
+
+.listView>ul>li .icon {
+  margin-left: auto;
+  background: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.listView>ul>li .icon a {
+  color: #B83F46;
+}
+
+.today {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */
